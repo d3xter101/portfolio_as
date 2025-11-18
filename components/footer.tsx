@@ -5,13 +5,13 @@ export function Footer() {
   return (
     <footer id="contact" className="border-t border-border bg-secondary/50">
       <div className="container mx-auto px-4 py-20 md:px-6">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl mx-auto text-center">
           <h2 className="mb-4 text-4xl font-bold text-primary">Let's Collaborate</h2>
           <p className="mb-12 text-lg text-muted-foreground">
             Open to data engineering opportunities, collaborative projects, and exploring innovative data solutions. Let's build something impactful together.
           </p>
 
-          <div className="mb-12 flex flex-col gap-4 sm:flex-row">
+          <div className="mb-12 flex flex-col gap-4 sm:flex-row justify-center">
             <Button
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90"
@@ -34,8 +34,8 @@ export function Footer() {
           </div>
 
           {/* Social Links & Info */}
-          <div className="grid gap-8 border-t border-border pt-8 md:grid-cols-2">
-            <div>
+          <div className="grid gap-8 border-t border-border pt-8 md:grid-cols-2 text-left">
+            <div className="mx-auto">
               <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-foreground">
                 Connect
               </p>
@@ -59,7 +59,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div>
+            <div className="mx-auto">
               <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-foreground">
                 Contact
               </p>
