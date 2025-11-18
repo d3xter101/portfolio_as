@@ -59,7 +59,7 @@ export function Certifications() {
 
   return (
     <section id="certifications" className="border-b border-border">
-      <div className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+      <div className="container mx-auto px-4 py-20 md:px-6 md:py-32 max-w-7xl">
         <h2 className="mb-12 text-4xl font-bold text-primary animate-fade-in">Certifications & Credentials</h2>
 
         <div className="grid gap-4 md:grid-cols-3 animate-stagger">
@@ -72,9 +72,9 @@ export function Certifications() {
               style={{ animationDelay: `${0.1 + index * 0.08}s` }}
             >
               <div className="flex items-start gap-3">
-                <Award className="mt-1 size-5 flex-shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
+                <Award className="mt-1 size-6 flex-shrink-0 text-primary transition-transform duration-300 group-hover:scale-110" />
                 <div className="flex-1">
-                  <p className="font-semibold text-foreground text-sm leading-tight">{cert.title}</p>
+                  <p className="font-semibold text-foreground text-lg text-base leading-tight">{cert.title}</p>
                 </div>
               </div>
 
@@ -82,16 +82,16 @@ export function Certifications() {
                 <Image 
                   src={cert.logo || "/placeholder.svg"} 
                   alt={cert.provider} 
-                  width={32} 
-                  height={32}
+                  width={40} 
+                  height={40}
                   className="object-contain transition-transform duration-300 group-hover:scale-110"
                 />
-                <span className="text-xs font-medium text-muted-foreground">{cert.provider}</span>
+                <span className="text-base font-medium text-muted-foreground">{cert.provider}</span>
               </div>
 
               <div className="flex flex-wrap gap-2">
                 {cert.skills.slice(0, 3).map((skill) => (
-                  <Badge key={skill} variant="secondary" className="text-xs">
+                  <Badge key={skill} variant="secondary" className="text-base px-3 py-1.5">
                     {skill}
                   </Badge>
                 ))}

@@ -78,7 +78,7 @@ export function Skills() {
         <div className="absolute bottom-0 left-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-50"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+      <div className="container mx-auto px-4 py-20 md:px-6 md:py-32 max-w-7xl">
         <h2 className="mb-12 text-4xl font-bold text-primary animate-fade-in">Technical Skills</h2>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 animate-stagger">

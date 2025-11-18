@@ -24,7 +24,7 @@ export function Experience() {
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-50"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-20 md:px-6 md:py-32">
+      <div className="container mx-auto px-4 py-20 md:px-6 md:py-32 max-w-7xl">
         <h2 className="mb-12 text-4xl font-bold text-primary animate-fade-in">Experience</h2>
 
         <div className="max-w-4xl mx-auto space-y-6 animate-stagger">
@@ -44,11 +44,11 @@ export function Experience() {
                 </div>
                 <div>
                   <CardHeader>
-                    <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">{exp.title}</CardTitle>
-                    <CardDescription className="text-base">
+                    <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300">{exp.title}</CardTitle>
+                    <CardDescription className="text-lg">
                       {exp.company} • {exp.location}
                     </CardDescription>
-                    <CardDescription className="text-sm">{exp.period}</CardDescription>
+                    <CardDescription className="text-base">{exp.period}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
@@ -56,13 +56,13 @@ export function Experience() {
                         {exp.responsibilities.map((resp) => (
                           <li key={resp} className="flex items-start gap-3 text-foreground/80 transition-all duration-300 hover:text-foreground">
                             <span className="mt-2 size-2 rounded-full bg-primary flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
-                            <span className="text-sm leading-relaxed">{resp}</span>
+                            <span className="text-base leading-relaxed">{resp}</span>
                           </li>
                         ))}
                       </ul>
                       <div className="flex flex-wrap gap-2 pt-4">
                         {exp.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary text-xs hover:bg-primary/20 transition-all duration-300 hover:scale-105 cursor-pointer">
+                          <Badge key={tech} variant="secondary" className="bg-primary/10 text-primary text-base px-4 py-2 hover:bg-primary/20 transition-all duration-300 hover:scale-105 cursor-pointer">
                             {tech}
                           </Badge>
                         ))}
