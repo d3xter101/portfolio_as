@@ -8,106 +8,125 @@ import { AnimatedText } from './animated-text'
 export function Hero() {
   return (
     <section className="relative border-b border-border overflow-hidden">
+      {/* Enhanced animated background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float opacity-50"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float opacity-50" style={{ animationDelay: '1s' }}></div>
+        {/* Primary floating orbs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob opacity-50"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-blob opacity-50" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl animate-blob opacity-40" style={{ animationDelay: '4s' }}></div>
+        
+        {/* Additional floating particles */}
+        <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-blue-500/5 rounded-full blur-2xl animate-float opacity-30" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-80 h-80 bg-cyan-500/5 rounded-full blur-2xl animate-float opacity-30" style={{ animationDelay: '3s' }}></div>
+        
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-accent/5 animate-pulse-slow opacity-50"></div>
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(to right, currentColor 1px, transparent 1px),
+                           linear-gradient(to bottom, currentColor 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
 
       <div className="container mx-auto px-4 py-20 md:px-6 md:py-32 animate-stagger">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center max-w-5xl">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center max-w-6xl mx-auto">
           {/* Text Content */}
           <div>
             <h1 className="mb-4 text-5xl font-bold leading-tight text-primary md:text-6xl animate-fade-in">
               SAIDI Abdelhamid
             </h1>
-            <p className="mb-8 text-xl text-muted-foreground animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <AnimatedText />
-            </p>
-            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-foreground/80 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              Specialized in building end-to-end data pipelines, ETL/ELT orchestration, and analytics solutions on cloud platforms. 
-              Passionate about transforming raw data into actionable business insights using modern data engineering practices.
+            <div className="mb-6 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              <p className="text-3xl text-muted-foreground">
+                <AnimatedText />
+              </p>
+            </div>
+            
+            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-foreground/90 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              I design <span className="text-primary font-semibold">data systems that scale</span>. From architecting cloud-native pipelines to building analytics platforms that power business decisions, I focus on creating solutions that deliver real value. My goal is simple: <span className="text-primary font-semibold">make data work for you</span>, not the other way around.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col gap-4 sm:flex-row animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <a href="#contact">Get in Touch</a>
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-xl hover:scale-105 group">
+                <a href="#contact" className="flex items-center gap-2">
+                  Download CV 
+                  <Download size={16} className="group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <Button
                 variant="outline"
                 asChild
-                className="border-border text-foreground hover:bg-secondary transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                size="lg"
+                className="border-border text-foreground hover:bg-secondary transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
-                <a href="#projects">View Work</a>
+                <a href="#projects">View My Work</a>
               </Button>
             </div>
 
-            <div className="mt-12 space-y-4 text-sm text-muted-foreground animate-slide-up" style={{ animationDelay: '0.4s' }}>
-              <div className="flex items-center gap-2 transition-all duration-300 hover:text-primary">
-                <Mail size={16} />
-                <a href="mailto:abdelhamidsaidiofficial@gmail.com" className="hover:text-primary">
-                  abdelhamidsaidiofficial@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center gap-2 transition-all duration-300 hover:text-primary">
-                <MapPin size={16} />
-                <span>Casablanca, Morocco</span>
-              </div>
-            </div>
+            {/* Quick Info */}
+      
 
-            <div className="mt-8 flex flex-wrap gap-4 animate-slide-up" style={{ animationDelay: '0.5s' }}>
+            {/* Social Links */}
+            <div className="mt-6 flex flex-wrap gap-3 animate-slide-up" style={{ animationDelay: '0.5s' }}>
               <Button 
                 asChild
+                variant="outline"
                 size="sm"
-                className="bg-primary/20 text-primary hover:bg-primary/30 border border-primary/40"
+                className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg group"
               >
-                <a href="mailto:abdelhamidsaidiofficial@gmail.com">
-                  <Mail size={16} className="mr-2" />
+                <a href="mailto:abdelhamidsaidiofficial@gmail.com" className="flex items-center gap-2">
+                  <Mail size={16} className="group-hover:scale-110 transition-transform" />
                   Email
                 </a>
               </Button>
               <Button 
                 asChild
+                variant="outline"
                 size="sm"
-                className="bg-primary/20 text-primary hover:bg-primary/30 border border-primary/40"
+                className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg group"
               >
-                <a href="https://github.com/abdelhamidsaidi" target="_blank" rel="noopener noreferrer">
-                  <Github size={16} className="mr-2" />
+                <a href="https://github.com/abdelhamidsaidi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <Github size={16} className="group-hover:scale-110 transition-transform" />
                   GitHub
                 </a>
               </Button>
               <Button 
                 asChild
+                variant="outline"
                 size="sm"
-                className="bg-primary/20 text-primary hover:bg-primary/30 border border-primary/40"
+                className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg group"
               >
-                <a href="https://linkedin.com/in/abdelhamid-saidi" target="_blank" rel="noopener noreferrer">
-                  <Linkedin size={16} className="mr-2" />
+                <a href="https://linkedin.com/in/abdelhamid-saidi" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <Linkedin size={16} className="group-hover:scale-110 transition-transform" />
                   LinkedIn
                 </a>
               </Button>
               <Button 
                 asChild
+                variant="outline"
                 size="sm"
-                className="bg-primary/20 text-primary hover:bg-primary/30 border border-primary/40"
+                className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-lg group"
               >
-                <a href="/cv.pdf" download>
-                  <Download size={16} className="mr-2" />
-                  Download CV
+                <a href="/cv.pdf" download className="flex items-center gap-2">
+                  <Download size={16} className="group-hover:scale-110 transition-transform" />
+                  Resume
                 </a>
               </Button>
             </div>
           </div>
 
           <div className="flex justify-center items-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl animate-float"></div>
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary/30 bg-card shadow-2xl">
+            <div className="relative w-72 h-72 md:w-96 md:h-96 group">
+              <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 rounded-2xl blur-3xl animate-float group-hover:blur-2xl transition-all duration-500"></div>
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary/30 bg-card shadow-2xl group-hover:shadow-primary/20 group-hover:border-primary/50 transition-all duration-500 group-hover:scale-105">
                 <Image
-                  src="/professional-data-engineer-portrait.jpg"
-                  alt="Profile"
+                  src="./hero_image.png"
+                  alt="Abdelhamid Saidi - Data Engineer"
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
             </div>

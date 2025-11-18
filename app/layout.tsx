@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Ubuntu } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { CursorTracker } from '@/components/cursor-tracker'
 import { AnimatedBackground } from '@/components/animated-background'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const ubuntu = Ubuntu({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-ubuntu',
+})
 
 export const metadata: Metadata = {
   title: 'SAIDI Abdelhamid | Data Engineering & Analytics',
@@ -53,7 +56,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`font-sans antialiased`}>
+      <body className={`${ubuntu.variable} font-sans antialiased`}>
         <AnimatedBackground />
         <CursorTracker />
         <ThemeProvider>

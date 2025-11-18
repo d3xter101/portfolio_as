@@ -3,38 +3,64 @@
 import { useEffect, useState } from 'react'
 
 export function AnimatedText() {
-  const [displayText, setDisplayText] = useState('Data Engineer &')
-  const [phase, setPhase] = useState<'delete' | 'write'>('delete')
-  const [index, setIndex] = useState('Data Engineer &'.length)
+  const roles = [
+    'Data Engineer',
+    'Turning data into insights',
+    'ETL Specialist',
+    'Cloud Data Solutions Architect',
+    'OCI & GCP/Azure Enthusiast'
 
-  const textToDelete = 'Data Engineer &'
-  const textToWrite = 'Analytics Professional'
+  ]
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
+  const [displayText, setDisplayText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [charIndex, setCharIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
+    const currentRole = roles[currentRoleIndex]
+
+    if (isPaused) {
+      const pauseTimer = setTimeout(() => {
+        setIsPaused(false)
+        setIsDeleting(true)
+      }, 2000) // Pause for 2 seconds before deleting
+      return () => clearTimeout(pauseTimer)
+    }
+
+    const speed = isDeleting ? 30 : 80
+
     const timer = setTimeout(() => {
-      if (phase === 'delete') {
-        if (index > 0) {
-          setIndex(index - 1)
-          setDisplayText(textToDelete.substring(0, index - 1))
+      if (!isDeleting) {
+        // Typing
+        if (charIndex < currentRole.length) {
+          setDisplayText(currentRole.substring(0, charIndex + 1))
+          setCharIndex(charIndex + 1)
         } else {
-          setPhase('write')
-          setIndex(0)
+          // Finished typing, pause before deleting
+          setIsPaused(true)
         }
       } else {
-        if (index < textToWrite.length) {
-          setDisplayText(textToWrite.substring(0, index + 1))
-          setIndex(index + 1)
+        // Deleting
+        if (charIndex > 0) {
+          setDisplayText(currentRole.substring(0, charIndex - 1))
+          setCharIndex(charIndex - 1)
+        } else {
+          // Finished deleting, move to next role
+          setIsDeleting(false)
+          setCurrentRoleIndex((currentRoleIndex + 1) % roles.length)
         }
       }
-    }, 50)
+    }, speed)
 
     return () => clearTimeout(timer)
-  }, [index, phase])
+  }, [charIndex, isDeleting, isPaused, currentRoleIndex, roles])
 
   return (
-    <span className="inline-block min-w-max">
-      {displayText}
-      <span className="animate-pulse ml-1">|</span>
+    <span className="inline-block min-w-[280px]">
+      <span className="font-medium">{displayText}</span>
+      <span className="animate-pulse ml-1 font-bold text-primary">|</span>
     </span>
   )
 }
