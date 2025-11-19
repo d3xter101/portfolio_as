@@ -26,9 +26,9 @@ export function Footer() {
               asChild
               className="border-border text-foreground hover:bg-secondary"
             >
-              <a href="https://github.com/abdelhamidsaidi" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 size-4" />
-                GitHub
+              <a href="https://linkedin.com/in/abdelhamidsaidi" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 size-4" />
+                Linkedin
               </a>
             </Button>
           </div>

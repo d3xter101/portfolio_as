@@ -17,10 +17,10 @@ export function Header() {
   }, [])
 
   const navItems = [
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Certifications', href: '#certifications' },
+    { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ]
 
